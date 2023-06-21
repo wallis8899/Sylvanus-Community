@@ -41,7 +41,7 @@ if rad == "ChatRoom":
 				chatter = ChatRoom(Chat=chat)
 				session.add(chatter)
 				session.commit()
-				session.rollback()
+			
 	chatside()
 
 if rad == "BlogWriting":
