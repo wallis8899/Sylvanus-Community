@@ -5,6 +5,7 @@ import uuid
 import sqlite3
 from database import ChatRoom,Blog,FeedBack
 from database import session
+import pillow
 
 
 st.set_page_config(page_title="Sylvanus Community", layout="centered")
