@@ -1,0 +1,49 @@
+import streamlit as st
+from streamlit_option_menu import option_menu
+from Admindb import AdminCred
+from Admindb import sessions
+from database import Movies
+from database import session
+from time import sleep
+
+
+def admin():
+	st.markdown("""
+		<style>
+			.css-14xtw13{
+				visibility: hidden;
+			}
+			.css-cio0dv{
+				visibility: hidden;
+			}
+			.css-nahz7x{
+				font-style: italic;
+			}
+			.e16nr0p34{
+				font-size: 10px;
+			}""", unsafe_allow_html=True)
+
+	Username = st.sidebar.text_input(label="Username")
+	Password = st.sidebar.text_input(label="Password", type="password")
+	if st.sidebar.button("Login"):
+		for p in sessions.query(AdminCred):
+			if Username == p.Title and Password == p.Image:
+				st.success("login Successful")
+				st.title("Movie UploadRoom")
+				with st.sidebar:
+					rad = option_menu(options=["None","UploadMovies"], menu_title="Admin",orientation="Vertical")
+					if rad == "UploadMovies":
+						Name = st.text_input(label="Movie Name")
+						Link = st.text_input(label="Movie Link")
+						Cate = st.text_input(label="Category")
+						sub = st.button("Upload")
+						st.markdown("---")
+
+						if sub:
+							x = Movies(Name=Name,Link=Link,Category=Cate)
+							session.add(x)
+							session.commit()
+
+
+						else:
+							st.error("Invalid Credentials")

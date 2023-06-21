@@ -1,0 +1,30 @@
+from sqlalchemy import create_engine,String,ForeignKey,Integer,Column
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+import uuid
+
+
+
+
+Base = declarative_base()
+class AdminCred(Base):
+	__tablename__ = "AdminCred"
+	postId1 = Column("Id",String,primary_key=True,default=str(uuid.uuid4()))
+	Title = Column("Title",String)
+	Image = Column("Image",String)
+
+
+	"""docstring for ClassName"""
+
+	def __init__(self, Title,Image):
+		self.Title = Title
+		self.Image = Image
+		
+
+
+db = "sqlite:///database/Admindb.db"
+engine = create_engine(db)
+Base.metadata.create_all(bind=engine)
+Session = sessionmaker(bind=engine)
+sessions = Session()
+
