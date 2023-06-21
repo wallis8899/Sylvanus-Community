@@ -41,6 +41,7 @@ if rad == "ChatRoom":
 				chatter = ChatRoom(Chat=chat)
 				session.add(chatter)
 				session.commit()
+				session.close()
 			
 	chatside()
 
@@ -56,6 +57,7 @@ if rad == "BlogWriting":
 		Blogger = Blog(Title=title,BlogText=Main_Blog,Image="None")
 		session.add(Blogger)
 		session.commit()
+		session.close()
 
 
 		pass
@@ -85,6 +87,7 @@ if rad == "GiveFeedBack":
 			feeder = FeedBack(Name=Name,Email=Email,FeedBack=Solution)
 			session.add(feeder)
 			session.commit()
+			session.close()
 			success_for_feedback = st.info("Thanks for the feedback")
 
 
