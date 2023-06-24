@@ -20,7 +20,7 @@ st.sidebar.markdown("""
                         }	
                         .css-nahz7x p{
 							text-align: center;
-							color: bisque;
+						
 						}
       
                       </style>
