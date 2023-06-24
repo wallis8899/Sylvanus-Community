@@ -39,6 +39,9 @@ st.markdown("""
 			.css-nahz7x{
 				font-style: italic;
 			}
+   			.styles_terminalButton__3xUnY{
+      				visibility: hidden;
+			}
 		</style>
 		""", unsafe_allow_html=True)
 
