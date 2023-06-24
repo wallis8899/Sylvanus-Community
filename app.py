@@ -64,6 +64,7 @@ if rad == "ChatRoom":
 					session.close()
 				except Exception:
 					session.merge(Chater)
+					session.commit()
 					session.close()
 			else:
 				st.warning("Input Required")
@@ -88,6 +89,7 @@ if rad == "BlogWriting":
 				session.close()
 			except Exception:
 				session.merge(Blogger)
+				session.commit()
 				session.close()
 		else:
 			st.warning("Input Required")
@@ -124,6 +126,7 @@ if rad == "GiveFeedBack":
 
 			except Exception:
 				session.merge(feeder)
+				session.commit()
 				session.close()
 				success_for_feedback = st.info("Thanks for the feedback")
 
